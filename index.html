@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Đố Bạn Chạm</title>
+</head>
+<body>
+    <script>
+        const body = document.body;
+        body.style.margin = 0;
+        body.style.height = '100vh';
+        body.style.display = 'flex';
+        body.style.justifyContent = 'center';
+        body.style.alignItems = 'center';
+        body.style.flexDirection = 'column';
+
+        const startButton = document.createElement('button');
+        startButton.textContent = 'Bắt đầu';
+        startButton.style.fontSize = '24px';
+        startButton.style.padding = '10px 20px';
+        body.appendChild(startButton);
+
+        startButton.addEventListener('click', () => {
+            startButton.remove();
+
+            const instructions = document.createElement('p');
+            instructions.textContent = 'Yêu cầu người chơi ấn được vào "Đố bạn chạm được vào tôi"';
+            instructions.style.fontSize = '18px';
+            instructions.style.textAlign = 'center';
+            body.appendChild(instructions);
+
+            const button1 = document.createElement('button');
+            button1.textContent = 'Chịu thua chưa';
+            button1.style.margin = '10px';
+            button1.style.padding = '10px 20px';
+            button1.style.fontSize = '16px';
+
+            const button2 = document.createElement('button');
+            button2.textContent = 'Đố bạn chạm vào được tôi';
+            button2.style.margin = '10px';
+            button2.style.padding = '10px 20px';
+            button2.style.fontSize = '16px';
+            button2.style.position = 'absolute';
+
+            body.appendChild(button1);
+            body.appendChild(button2);
+
+            button1.addEventListener('click', () => {
+                alert('Lêu lêu đồ con gà công nghiệp');
+                location.reload();
+            });
+
+            button2.addEventListener('mouseover', () => {
+                const x = Math.random() * (window.innerWidth - button2.offsetWidth);
+                const y = Math.random() * (window.innerHeight - button2.offsetHeight);
+                button2.style.left = `${x}px`;
+                button2.style.top = `${y}px`;
+            });
+        });
+    </script>
+</body>
+</html>
